@@ -85,6 +85,10 @@ jobs:
         ln -sf /workdir/openwrt $GITHUB_WORKSPACE/openwrt
         cd openwrt
         echo "src-git opp https://github.com/xiaorouji/openwrt-passwall-packages.git;main" >> ./feeds.conf.default
+    - name: 添加 v2raya 软件包
+      run: |
+        cd /workdir/openwrt
+        git clone https://github.com/v2rayA/v2raya-openwrt package/v2raya
 
     - name: 开启缓存
       uses: klever1988/cachewrtbuild@main
