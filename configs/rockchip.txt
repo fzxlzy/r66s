@@ -1,35 +1,30 @@
-#target
+# =========================================================
+# Target
+# =========================================================
 CONFIG_TARGET_rockchip=y
 CONFIG_TARGET_rockchip_armv8=y
-CONFIG_TARGET_MULTI_PROFILE=y
-#CONFIG_TARGET_DEVICE_rockchip_armv8_DEVICE_ariaboard_photonicat=y
-#CONFIG_TARGET_DEVICE_rockchip_armv8_DEVICE_ezpro_mrkaio-m68s=y
-#CONFIG_TARGET_DEVICE_rockchip_armv8_DEVICE_ezpro_mrkaio-m68s-plus=y
+# CONFIG_TARGET_MULTI_PROFILE is not set
 CONFIG_TARGET_DEVICE_rockchip_armv8_DEVICE_fastrhino_r66s=y
-#CONFIG_TARGET_DEVICE_rockchip_armv8_DEVICE_friendlyarm_nanopi-r2c=y
-#CONFIG_TARGET_DEVICE_rockchip_armv8_DEVICE_friendlyarm_nanopi-r2s=y
-#CONFIG_TARGET_DEVICE_rockchip_armv8_DEVICE_friendlyarm_nanopi-r3s=y
-#CONFIG_TARGET_DEVICE_rockchip_armv8_DEVICE_friendlyarm_nanopi-r4s=y
-#CONFIG_TARGET_DEVICE_rockchip_armv8_DEVICE_friendlyarm_nanopi-r4se=y
-#CONFIG_TARGET_DEVICE_rockchip_armv8_DEVICE_friendlyarm_nanopi-r5c=y
-#CONFIG_TARGET_DEVICE_rockchip_armv8_DEVICE_friendlyarm_nanopi-r5s=y
-#CONFIG_TARGET_DEVICE_rockchip_armv8_DEVICE_firefly_station-p2=y
-#CONFIG_TARGET_DEVICE_rockchip_armv8_DEVICE_hinlink_opc-h28k=y
-#CONFIG_TARGET_DEVICE_rockchip_armv8_DEVICE_hinlink_opc-h66k=y
-#CONFIG_TARGET_DEVICE_rockchip_armv8_DEVICE_hinlink_opc-h68k=y
-#CONFIG_TARGET_DEVICE_rockchip_armv8_DEVICE_hinlink_opc-h69k=y
-#CONFIG_TARGET_DEVICE_rockchip_armv8_DEVICE_lyt_t68m=y
-#CONFIG_TARGET_DEVICE_rockchip_armv8_DEVICE_radxa_e20c=y
-#CONFIG_TARGET_DEVICE_rockchip_armv8_DEVICE_xunlong_orangepi-5-plus=y
-#CONFIG_TARGET_DEVICE_rockchip_armv8_DEVICE_xunlong_orangepi-r1-plus=y
-#CONFIG_TARGET_DEVICE_rockchip_armv8_DEVICE_xunlong_orangepi-r1-plus-lts=y
-#CONFIG_TARGET_DEVICE_rockchip_armv8_DEVICE_widora_mangopi-m28k=y
-#CONFIG_TARGET_DEVICE_rockchip_armv8_DEVICE_widora_mangopi-m28k-pro=y
 
-#rootfs
+# =========================================================
+# Image / Rootfs
+# 64GB TF 卡自用，优先 ext4，避免配置不保存问题
+# =========================================================
+CONFIG_TARGET_IMAGES_GZIP=y
+
 CONFIG_TARGET_ROOTFS_SQUASHFS=n
 CONFIG_TARGET_ROOTFS_EXT4FS=y
+
+# 根分区大小（MB）
+#CONFIG_TARGET_ROOTFS_PARTSIZE=2048
+
+# 可选：如果后续你觉得 2GB 不够，可以改成 4096
 CONFIG_TARGET_ROOTFS_PARTSIZE=4096
 
-#luci
+# =========================================================
+# LuCI / 基础界面
+# =========================================================
+CONFIG_PACKAGE_luci=y
+CONFIG_PACKAGE_luci-ssl=y
 CONFIG_PACKAGE_luci-app-cpufreq=y
+CONFIG_PACKAGE_luci-theme-argon=y
